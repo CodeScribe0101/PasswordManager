@@ -18,14 +18,13 @@ while True:
         case 'saved password':
             name__password = str(input('name password: '))
             json_data = json_load()["save password"]
-            index = 0
             for i in range(0, len(json_data)):
                 try:
-                    print(json_data[i][str(index)][name__password])
+                    print(json_data[i][str(0)][name__password])
                     break
                 except KeyError:
-                    # while
-                    def password(index_password=1):
+                    index_password = 1
+                    while True:
                         try:
                             try:
                                 json_data[i][str(index_password)]
@@ -34,13 +33,10 @@ while True:
                                     print(f"password {name__password} does not exist")
                                     print('you may have entered the wrong username if you forgot the password'
                                           'name, you can find the name using the command all password')
-                                return ''  # exit from recursion
+                                break
                             print(json_data[i][str(index_password)][name__password])
                         except KeyError:
-                            password(index_password + 1)
-
-
-                    password()
+                            index_password += 1
         case 'all password':
             data = json_load()["save password"]
             for i in range(len(data)):
@@ -85,6 +81,6 @@ while True:
 
             with open('Save_password.json', 'w', encoding="UTF-8") as f:
                 json.dump({"{}": new_password, "save password": eval(pure_json)}, f, indent=4)
-            break  # exit while
+            break  # exiting the program
         case _:
             print("no such command exists, you may have made a spelling mistake when writing the command")
