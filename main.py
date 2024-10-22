@@ -18,32 +18,31 @@ while True:
         case 'saved password':
             name__password = str(input('name password: '))
             json_data = json_load()["save password"]
+            source_code = 1
             for i in range(0, len(json_data)):
-                try:
-                    print(json_data[i][str(0)][name__password])
-                    break
-                except KeyError:
-                    index_password = 1
-                    while True:
-                        try:
-                            try:
-                                json_data[i][str(index_password)]
-                            except KeyError:
-                                if i == len(json_data) - 1:
-                                    print(f"password {name__password} does not exist")
-                                    print('you may have entered the wrong username if you forgot the password'
-                                          'name, you can find the name using the command all password')
-                                break
-                            print(json_data[i][str(index_password)][name__password])
-                        except KeyError:
-                            index_password += 1
+                index_password = 0
+                while index_password != len(json_data[i]):
+                    try:
+                        print(json_data[i][str(index_password)][name__password])
+                        source_code = 0
+                        break
+                    except KeyError:
+                        index_password += 1
+            if source_code == 1:
+                print(f"password {name__password} does not exist")
+                print("you may have entered the wrong username if you forgot the password"
+                      "name, you can find the name using the command all password")
         case 'all password':
             data = json_load()["save password"]
+            # a list of unnecessary type to output to the console
+            replace_list = ['{', '}', "'", '[', ']', '0:', '1:', '2:', '3:', '4:', '5:', ' ']
+
             for i in range(len(data)):
-                pprint(str(data[i]).replace('{', '').replace('}', '')
-                       .replace("'", '').replace("[", '').replace("]", '')
-                       .replace("0:", '').replace("1:", '').replace("2:", '')
-                       .replace("3:", '').replace("4:", '').replace("5:", ''))
+                clean_data = str(data[i])
+                for symbol_i in range(len(replace_list)):
+                    clean_data = clean_data.replace(replace_list[symbol_i], '')
+                if clean_data != '':
+                    pprint(clean_data)
         case 'new password':
             while True:
                 ok = ':)'
