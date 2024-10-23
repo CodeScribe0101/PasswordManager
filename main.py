@@ -12,9 +12,8 @@ def json_load():
 
 while True:
     print('')
-    command = input()
 
-    match command:
+    match input():
         case 'saved password':
             name__password = str(input('name password: '))
             json_data = json_load()["save password"]
