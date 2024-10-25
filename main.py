@@ -49,17 +49,15 @@ while True:
                 name_password = str(input("name password: "))
 
                 for i in range(len(data)):
-                    keys_data = list(data[i].keys())
-                    for keys in range(len(keys_data)):
-                        if name_password == list(data[i][str(keys)].keys())[0]:
+                    for key in range(len(list(data[i].key()))):
+                        if name_password == list(data[i][str(key)].key())[0]:
                             ok = ':('
+                            print("a password with that name already exists")
                 if ok == ':)':
                     password = token_urlsafe(20)
                     print(f"new password: {password}")
                     new_password[len(new_password)] = {name_password: password}
                     break
-                else:
-                    print("a password with that name already exists")
         case 'exit':
             data = json_load()
             with open('Save_password.json', 'w', encoding="UTF-8") as f:
@@ -69,7 +67,7 @@ while True:
                     json.dump({"{}": new_password}, f, indent=4)
 
             try:
-                if Error == KeyError:
+                if Error == KeyError:  # NameError
                     data = json_load()
                     with open('Save_password.json', 'w', encoding="UTF-8") as f2:
                         json.dump({"{}": new_password, "save password": data["{}"]}, f2, indent=4)
