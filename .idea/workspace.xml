@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bde60119-e640-46be-a46d-47f7cef3b7dc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Save_password.json" beforeDir="false" afterPath="$PROJECT_DIR$/Save_password.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

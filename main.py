@@ -6,8 +6,8 @@ new_password = {}
 
 
 def json_load():
-    with open('Save_password.json', 'r', encoding="UTF-8") as fill_json:
-        return json.load(fill_json)
+    with open('Save_password.json', 'r', encoding="UTF-8") as fjson:
+        return json.load(fjson)
 
 
 while True:
